@@ -32,6 +32,4 @@ void main(List<String> arguments) {
   } catch (e) {
     print('Error reading or processing the input file: $e');
   }
-
 }
-
