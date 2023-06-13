@@ -22,12 +22,11 @@ void main(List<String> arguments) {
 
     final List<List<dynamic>> quantityOutputLines = calculateAverageQuantityPerOrder(csvList);
     writeOutputToFile(quantityOutputLines, quantityOutputFileName);
+    print('Quantity output written to $quantityOutputFileName');
 
     final brandOutputFileName = "1_$inputFileName";
     final brandOutputLines = findMostPopularBrand(csvList);
-
     writeOutputToFile(brandOutputLines, brandOutputFileName);
-    print('Quantity output written to $quantityOutputFileName');
     print('Brand output written to $brandOutputFileName');
   } catch (e) {
     print('Error reading or processing the input file: $e');

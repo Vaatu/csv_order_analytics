@@ -44,6 +44,7 @@ List<List<dynamic>> calculateAverageQuantityPerOrder(List<List<dynamic>> records
 
   return output;
 }
+
 /// Finds the most popular brand for each product based on the provided order records.
 /// Most popular is defined as the brand with the most total orders for the item, not the quantity purchased.
 /// If two or more brands have the same popularity for a product, any one of them is included.
@@ -85,6 +86,7 @@ List<List<dynamic>> findMostPopularBrand(List<List<dynamic>> records) {
 
   return output;
 }
+
 /// Generates a unique file name by appending a number to the original file name if it already exists.
 /// Returns the unique file name.
 String generateUniqueFileName(String fileName) {
@@ -102,6 +104,7 @@ String generateUniqueFileName(String fileName) {
 
   return uniqueFileName;
 }
+
 /// Writes the output data to a file.
 /// Takes the output data and the file name as input parameters.
 void writeOutputToFile(List<List<dynamic>> output, String fileName) {
