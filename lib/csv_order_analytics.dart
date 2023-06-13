@@ -2,11 +2,16 @@ import 'dart:io';
 
 import 'package:csv/csv.dart';
 
+
+/// Prompts the user to enter the input file name and returns it.
+/// Returns an empty string if no input is provided.
 String getInputFileName() {
   print('Enter the input file name (including .csv extension)');
   return stdin.readLineSync()?.trim() ?? "";
 }
-
+/// Calculates the average quantity per order for each product based on the provided order records.
+/// Throws an exception with the message "Invalid CSV format" if the CSV format is invalid.
+/// Returns a list of lists representing the output CSV data.
 List<List<dynamic>> calculateAverageQuantityPerOrder(List<List<dynamic>> records) {
   final productQuantityMap = <String, dynamic>{};
   final List<List<dynamic>> output = [
@@ -39,7 +44,10 @@ List<List<dynamic>> calculateAverageQuantityPerOrder(List<List<dynamic>> records
 
   return output;
 }
-
+/// Finds the most popular brand for each product based on the provided order records.
+/// Most popular is defined as the brand with the most total orders for the item, not the quantity purchased.
+/// If two or more brands have the same popularity for a product, any one of them is included.
+/// Returns a list of lists representing the output CSV data.
 List<List<dynamic>> findMostPopularBrand(List<List<dynamic>> records) {
   final products = <String, Map<String, int>>{};
   final List<List<dynamic>> output = [
@@ -77,7 +85,8 @@ List<List<dynamic>> findMostPopularBrand(List<List<dynamic>> records) {
 
   return output;
 }
-
+/// Generates a unique file name by appending a number to the original file name if it already exists.
+/// Returns the unique file name.
 String generateUniqueFileName(String fileName) {
   var uniqueFileName = fileName;
   var fileNumber = 0;
@@ -93,9 +102,10 @@ String generateUniqueFileName(String fileName) {
 
   return uniqueFileName;
 }
-
+/// Writes the output data to a file.
+/// Takes the output data and the file name as input parameters.
 void writeOutputToFile(List<List<dynamic>> output, String fileName) {
   final csvContent = ListToCsvConverter(eol: "\n").convert(output);
-  final outputFile = File("./outputs/$generateUniqueFileName(fileName)");
+  final outputFile = File(generateUniqueFileName(fileName));
   outputFile.writeAsStringSync(csvContent);
 }
