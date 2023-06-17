@@ -5,6 +5,10 @@ in `lib/`.
 
 This script processes a CSV file containing order details from an online shopping website and generates two separate output files: one with the average quantity of each product purchased per order and another with the most popular brand for each product.
 
+## Requirements
+
+- Dart 3.7.8
+
 ## Input File Structure
 
 The input CSV file should have the following columns, in order:
