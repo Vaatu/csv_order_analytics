@@ -66,3 +66,7 @@ Product Name,Most Popular Brand
 Intelligent Copper Knife,Hilll-Gorczany
 Small Granite Shoes,Rowe and Legros
 ```
+## Tests
+
+Unit tests have been included to verify the correctness of the CSV processing functionality. You can run the tests by executing the appropriate command. Make sure to have the necessary dependencies installed before running the tests.
+
